@@ -1,0 +1,192 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 mt-4">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa-solid fa-list"></i>
+          Relação dos imóveis
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <form class="m-2">
+              <div class="row">
+                <div class="col-md-3">
+                  <label for="setor" class="form-label">Setor</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="setor"
+                    aria-describedby="setorHelp"
+                  />
+                  <div id="setorHelp" class="form-text">
+                    Digite o número do setor
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <label for="quadra" class="form-label">Quadra</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="quadra"
+                    aria-describedby="quadraHelp"
+                  />
+                  <div id="quadraHelp" class="form-text">
+                    Digite o número da quadra
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <label for="lote" class="form-label">Lote</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="lote"
+                    aria-describedby="loteHelp"
+                  />
+                  <div id="loteHelp" class="form-text">
+                    Digite o número do lote
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="pt-4">
+                    <button type="button" class="btn btn-primary btn-search">
+                      <i class="fa-solid fa-magnifying-glass-location"></i>
+                      Buscar
+                    </button>
+                    <button type="button" class="btn btn-warning btn-search">
+                      <i class="fa-solid fa-rotate-left"></i>
+                      Limpar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div class="col-md-12 mt-4 p-4">
+              <a
+                href="{% url 'register:form_upload' %}"
+                class="btn btn-primary mb-4"
+                role="button"
+              >
+                <i class="fa-solid fa-circle-plus"></i>
+                Adicionar imóvel
+              </a>
+              <table class="table table-striped table-hover">
+                <thead class="table-light">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Código</th>
+                    <th scope="col">Setor</th>
+                    <th scope="col">Quadra</th>
+                    <th scope="col">Lote</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>123456</td>
+                    <td>01</td>
+                    <td>02</td>
+                    <td>245</td>
+                    <td>
+                      <a
+                        href="property_detail.html"
+                        class="btn btn-primary"
+                        role="button"
+                      >
+                        <i class="fa fa-info-circle"></i>
+                      </a>
+                      <a href="#" class="btn btn-warning" role="button">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                      </a>
+                      <button
+                        type="button"
+                        class="btn btn-danger"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
+                      >
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>543260</td>
+                    <td>05</td>
+                    <td>12</td>
+                    <td>102-A</td>
+                    <td>
+                      <a href="#" class="btn btn-primary" role="button">
+                        <i class="fa fa-info-circle"></i>
+                      </a>
+                      <a href="#" class="btn btn-warning" role="button">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                      </a>
+                      <a href="#" class="btn btn-danger" role="button">
+                        <i class="fa-solid fa-trash"></i>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        Remover imóvel 1
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      Tem certeza que deseja deletar este registro?
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        <i class="fa-solid fa-ban"></i>
+                        Voltar
+                      </button>
+                      <button type="button" class="btn btn-danger">
+                        <i class="fa-solid fa-trash"></i>
+                        Remover
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <a class="page-link" href="#"> << </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#"> >> </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

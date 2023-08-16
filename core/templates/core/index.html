@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% block content %}
+<div class="p-5 mb-4 bg-light rounded-3">
+  <div class="container-fluid py-5">
+    <h1 class="display-5 fw-bold">
+      <i class="fa-solid fa-city"></i>
+      UrbanGeoSIG
+    </h1>
+    <p class="col-md-8 fs-4">
+      Sistema de Georreferenciamento voltado para a gestão de prefeituras
+    </p>
+    <a
+      href="{% url 'sigweb:map' %}"
+      class="btn btn-success btn-lg"
+      role="button"
+    >
+      <i class="fa-solid fa-right-to-bracket"></i> Acessar
+    </a>
+  </div>
+</div>
+{% endblock content %}

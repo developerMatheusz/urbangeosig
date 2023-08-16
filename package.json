@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "format:templates": "prettier --write **/**/**/*.html",
+    "format:json": "prettier --write *.json",
+    "format:js": "prettier --write **/**/**/*.js"
+  }
+}

@@ -1,0 +1,32 @@
+version: "3"
+services:
+  db:
+    image: postgis/postgis
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Axq76665pB22269
+      - POSTGRES_DB=urbangeosig
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+  django:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - SECRET_KEY=secretsecretsecret
+      - DEBUG=True
+      - ALLOWED_HOSTS=*
+      - DATABASE_URL=postgres://postgres:Axq76665pB22269@db/urbangeosig
+      - GEOSERVER=http://localhost:8080/geoserver/urbangeosig
+    volumes:
+      - ./:/app
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+  geo:
+    image: docker.osgeo.org/geoserver:2.23.1
+    ports:
+      - 8080:8080

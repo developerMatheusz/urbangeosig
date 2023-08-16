@@ -1,0 +1,109 @@
+{% extends 'base.html' %} {% load static core_tags %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'vendor/leaflet/leaflet.css' %}" />
+<link
+  rel="stylesheet"
+  href="{% static 'vendor/leaflet/plugins/zoom_to_home/leaflet.zoomhome.css' %}"
+/>
+{% endblock extra_css %} {% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 mt-4">
+      <div class="card">
+        <div class="card-header">
+          <button
+            class="btn btn-light"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasBottom"
+            aria-controls="offcanvasBottom"
+          >
+            <i class="fa-solid fa-magnifying-glass-location"></i>
+            Pesquisar
+          </button>
+        </div>
+        <div class="card-body map-card-body">
+          <div id="map"></div>
+          <input
+            type="hidden"
+            id="geoserver"
+            value="{% settings_value 'GEOSERVER' %}"
+          />
+          <input
+            type="hidden"
+            id="click"
+            value="{% url 'sigweb:click_map' 0 0 %}"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="offcanvas offcanvas-bottom"
+  tabindex="-1"
+  id="offcanvasBottom"
+  aria-labelledby="offcanvasBottomLabel"
+>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasBottomLabel">
+      <i class="fa-solid fa-magnifying-glass-location"></i>
+      Pesquisar
+    </h5>
+    <button
+      type="button"
+      class="btn-close text-reset"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="offcanvas-body small">
+    <form>
+      <div class="row">
+        <div class="col-md-3">
+          <label for="setor" class="form-label">Setor</label>
+          <input
+            type="text"
+            class="form-control"
+            id="setor"
+            aria-describedby="setorHelp"
+          />
+          <div id="setorHelp" class="form-text">Digite o número do setor</div>
+        </div>
+        <div class="col-md-3">
+          <label for="quadra" class="form-label">Quadra</label>
+          <input
+            type="text"
+            class="form-control"
+            id="quadra"
+            aria-describedby="quadraHelp"
+          />
+          <div id="quadraHelp" class="form-text">Digite o número da quadra</div>
+        </div>
+        <div class="col-md-3">
+          <label for="lote" class="form-label">Lote</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lote"
+            aria-describedby="loteHelp"
+          />
+          <div id="loteHelp" class="form-text">Digite o número do lote</div>
+        </div>
+        <div class="col-md-3">
+          <div class="pt-4">
+            <button type="button" class="btn btn-primary btn-search">
+              <i class="fa-solid fa-magnifying-glass-location"></i>
+              Limpar
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock content %} {% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="{% static 'vendor/leaflet/leaflet.js' %}"></script>
+<script src="{% static 'vendor/leaflet/plugins/zoom_to_home/leaflet.zoomhome.js' %}"></script>
+<script src="{% static 'js/mainmap.js' %}"></script>
+{% endblock extra_js %}

@@ -1,0 +1,35 @@
+{% load static bootstrap5 %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UrbanGeoSIG</title>
+    <link
+      rel="stylesheet"
+      href="{% static 'vendor/bootstrap-5.3.0-dist/css/bootstrap.min.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <link rel="shortcut icon" href="{% static 'img/map_icon.svg' %}" type="image/x-icon">
+    <script src="{% static 'vendor/fontawesome/f200917737.js' %}"></script>
+    {% block extra_css %}{% endblock extra_css %}
+  </head>
+  <body>
+    {% include 'includes/navbar.html' %}
+
+    <div id="msg">
+      {% bootstrap_messages %}
+    </div>
+
+    {% block content %}{% endblock content %}
+
+    <script src="{% static 'vendor/jquery/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap-5.3.0-dist/js/bootstrap.bundle.min.js' %}"></script>
+    <script>
+      $("#msg").show().delay(5000).fadeOut();
+    </script>
+
+    {% block extra_js %}{% endblock extra_js %}
+  </body>
+</html>

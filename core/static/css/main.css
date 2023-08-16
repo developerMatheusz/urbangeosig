@@ -1,0 +1,44 @@
+#jumpo-index {
+    background: rgba(204, 204, 204, 0.2);
+}
+
+#map {
+    width: 100%;
+    min-height: calc(100vh - 200px);
+}
+
+.map-card-body {
+    margin: 0;
+    padding: 0;
+}
+
+.btn-search {
+    margin-top: 6px;
+}
+
+#form-login {
+    padding: 2rem;
+}
+
+.leaflet-popup-content-wrapper ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.leaflet-popup-content-wrapper span {
+    font-weight: bold;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #f1f1f1;
+}
+
+.custom-file-input {
+    display: none;
+}

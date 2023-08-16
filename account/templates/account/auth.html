@@ -1,0 +1,32 @@
+{% extends 'base.html' %} {% load bootstrap5 %} {% block content %}
+<div class="p-5 mb-4 rounded-3">
+  <div class="container-fluid p-5">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-6 p-4">
+        {% bootstrap_form_errors form %}
+        <form
+          action=""
+          id="form-login"
+          class="shadow p-5 mb-5 bg-body-tertiary rounded-lg"
+          method="post"
+        >
+          {% csrf_token %}
+          <h3 class="pb-4 text-center">UrbanGeoSIG - Iniciar sessão</h3>
+          <div class="form-outline mb-4">
+            {% bootstrap_field form.username show_label=False placeholder="Nome de usuário" %}
+          </div>
+          <div class="form-outline mb-4">
+            {% bootstrap_field form.password show_label=False placeholder="Senha de acesso" %}
+          </div>
+          <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary btn-block mb-4">
+              <i class="fa-solid fa-right-to-bracket"></i>
+              Entrar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
